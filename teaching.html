@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching — Ali Kozehgaran</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Teaching-specific styles */
+    .epic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 2rem; }
+    .epic-card {
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      border-radius: var(--radius); padding: 1.5rem 1.6rem;
+      box-shadow: var(--shadow-sm); transition: all var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .epic-card:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+    .epic-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--accent); opacity: 0.7;
+    }
+    .epic-card__letter {
+      font-family: var(--font-display); font-size: 2rem;
+      color: var(--accent); line-height: 1; margin-bottom: 0.2rem;
+    }
+    .epic-card__title {
+      font-weight: 600; font-size: 0.95rem; margin-bottom: 0.6rem; color: var(--ink);
+    }
+    .epic-card__text { font-size: 0.88rem; color: var(--ink-secondary); line-height: 1.65; }
+
+    .quote-block {
+      border-left: 3px solid var(--accent);
+      padding: 0.8rem 1.2rem;
+      margin: 1rem 0;
+      background: var(--accent-subtle);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--ink-secondary);
+      line-height: 1.6;
+    }
+    .quote-block cite {
+      display: block; margin-top: 0.4rem;
+      font-style: normal; font-size: 0.78rem; color: var(--ink-muted);
+    }
+
+    .stats-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1.5rem 0; }
+    .stat-item {
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      border-radius: var(--radius); padding: 1rem 1.4rem; text-align: center;
+      flex: 1; min-width: 140px; box-shadow: var(--shadow-sm);
+    }
+    .stat-item__number {
+      font-family: var(--font-display); font-size: 1.6rem; color: var(--accent);
+      line-height: 1.2;
+    }
+    .stat-item__label { font-size: 0.75rem; color: var(--ink-muted); margin-top: 0.2rem; }
+
+    .video-table {
+      width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 1rem 0;
+    }
+    .video-table th {
+      text-align: left; padding: 0.6rem 0.8rem;
+      border-bottom: 2px solid var(--border); font-weight: 600;
+      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em;
+      color: var(--ink-muted);
+    }
+    .video-table td {
+      padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--border-light);
+      color: var(--ink-secondary);
+    }
+    .video-table tr:hover td { background: var(--accent-subtle); }
+    .video-table a { font-weight: 500; }
+
+    .resource-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.03em; padding: 0.3rem 0.7rem;
+      border: 1px solid var(--border); border-radius: 4px;
+      color: var(--ink-secondary); transition: all var(--transition);
+    }
+    .resource-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-subtle); }
+
+    @media (max-width: 600px) { .epic-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-header">
+    <span class="mobile-header__name">Ali Kozehgaran</span>
+    <button class="mobile-header__toggle" aria-label="Menu" onclick="toggleSidebar()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <aside class="sidebar">
+    <div class="sidebar__header">
+      <img src="img/headshot.jpg" alt="Ali Kozehgaran" class="sidebar__photo">
+      <div class="sidebar__name">Ali Kozehgaran</div>
+      <div class="sidebar__title">PhD Candidate<br>Quantitative Marketing<br>Syracuse University</div>
+    </div>
+    <nav class="sidebar__nav">
+      <ul>
+        <li><a href="index.html"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Home</a></li>
+        <li><a href="research.html"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Research</a></li>
+        <li><a href="teaching.html" class="active"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"/></svg>Teaching</a></li>
+        <li><a href="cv.html"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>CV</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar__contact">
+      <a href="mailto:akozehga@syr.edu">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        akozehga@syr.edu
+      </a>
+      <a href="https://www.linkedin.com/in/ali-kozehgaran/" target="_blank">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="tel:315-395-7430">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (315) 395-7430
+      </a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="content">
+
+      <div class="page-header">
+        <h1>Teaching</h1>
+        <hr class="page-header__divider">
+      </div>
+
+      <!-- ===== EPIC FRAMEWORK ===== -->
+      <div class="section animate-in">
+        <div class="section__label">Teaching Philosophy — The EPIC Framework</div>
+        <p class="bio-text" style="margin-bottom:1.5rem;">
+          My teaching rests on four commitments I call <strong>EPIC</strong>: <strong>E<strong>ngagement,
+          <strong>P<strong>ractical Learning, <strong>I<strong>nclusivity, and <strong>C<strong>ritical Thinking.
+        </p>
+
+        <div class="epic-grid">
+          <div class="epic-card">
+            <div class="epic-card__letter">E</div>
+            <div class="epic-card__title">Engagement</div>
+            <div class="epic-card__text">
+              meaningful learning begins with active participation. A strategically designed bonus point system rewards student contributions 
+              such as asking questions, responding to peers, or sharing relevant 
+              observations. Points accumulate and are normalized based on maximum participation, creating a healthy sense of competition.
+            </div>
+          </div>
+          <div class="epic-card">
+            <div class="epic-card__letter">P</div>
+            <div class="epic-card__title">Practical Learning</div>
+            <div class="epic-card__text">
+              Marketing is an applied discipline, and I design my courses to reflect that reality. Every major course component bridges theory and practice. 
+              The Mini Presentation assignment exemplifies this principle: students analyze real business strategies, 
+              research supporting evidence, and deliver concise analytical talks — building both presentation skills and critical thinking along the way.
+            </div>
+          </div>
+          <div class="epic-card">
+            <div class="epic-card__letter">I</div>
+            <div class="epic-card__title">Inclusivity</div>
+            <div class="epic-card__text">
+              Inclusivity is foundational to effective teaching. Anonymous QR-code class discussions create a judgment-free space where every voice is heard.  
+              Lectures incorporate cross-disciplinary examples so non-business majors can connect marketing to their own fields. 
+              Exams blend quantitative problems with analytical essays, ensuring that students with different strengths have an equal opportunity to 
+              demonstrate their understanding.
+            </div>
+          </div>
+          <div class="epic-card">
+            <div class="epic-card__letter">C</div>
+            <div class="epic-card__title">Critical Thinking</div>
+            <div class="epic-card__text">
+              Assessments move beyond memorization toward analysis and synthesis. Students compare strategies, 
+              identify weaknesses, and formulate predictions. Beyond individual critical thinking, students learn to articulate 
+              and defend their reasoning within a team — building the collaborative decision-making skills needed to navigate shifting competitive dynamics.
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-block">
+          "I have taken this course before but had to withdraw due to the previous Professor's lack of care. Being in this course with Professor Kozehgaran made this class that I once dreaded, a pleasant and nice learning environment."
+          <cite>— Student evaluation, Essentials of Marketing</cite>
+        </div>
+      </div>
+
+      <!-- ===== TEACHING STATS ===== -->
+      <div class="section animate-in">
+        <div class="section__label">By the Numbers (Spring '25)</div>
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-item__number">4.45</div>
+            <div class="stat-item__label">Instructor Rating</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__number">97%</div>
+            <div class="stat-item__label">29/30 Students Rated</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__number">300+</div>
+            <div class="stat-item__label">Minutes of Student Presentation</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__number">40+</div>
+            <div class="stat-item__label">Case Studies Discussed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item__number">73%</div>
+            <div class="stat-item__label">In-Class Participation Increase YoY</div>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- ===== COURSES ===== -->
+      <div class="section animate-in">
+        <div class="section__label">Courses Taught</div>
+
+        <div class="course-card">
+          <div class="course-card__title">Brand Management</div>
+          <div class="course-card__meta">
+            <span class="role-tag">Instructor of Record</span>
+            Fall 2026 (scheduled) &bull; 60 students &bull; Two sections
+          </div>
+          <div class="course-card__desc">
+            Anchored by the Markstrat simulation: students manage brand portfolios under resource
+            constraints, making decisions on segmentation, positioning, pricing, and product development.
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-card__title">Essentials of Marketing</div>
+          <div class="course-card__meta">
+            <span class="role-tag">Instructor of Record</span>
+            Spring 2025 &bull; 30 students &bull; Instructor rating: 4.45/5
+          </div>
+          <div class="course-card__desc">
+            Introductory marketing for non-business majors. Redesigned with intuitive frameworks, curated video cases, 
+            and cross-disciplinary examples that connect marketing concepts to students' 
+            own backgrounds — from psychology and economics to art and beyond.
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-card__title">Principles of Marketing</div>
+          <div class="course-card__meta">
+            <span class="role-tag">Instructor of Record</span>
+            Spring 2024 &bull; 42 students
+          </div>
+          <div class="course-card__desc">
+            Introductory marketing for business majors.
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-card__title">Doctoral Seminar in Marketing: Platform Economics &amp; Causal Inference</div>
+          <div class="course-card__meta">
+            <span class="role-tag">Lecturer</span>
+            Fall 2025
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-card__title">Data-Driven Decision-Making Analysis: Tools and Methods</div>
+          <div class="course-card__meta">
+            <span class="role-tag">Lecturer</span>
+            Spring 2020 &bull; Sharif University of Technology
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== MINI PRESENTATION ASSIGNMENT ===== -->
+      <div class="section animate-in">
+        <div class="section__label">Spotlight: Mini Presentation Assignment</div>
+        <div class="bio-text" style="margin-bottom:1rem;">
+          <p>
+            Each student is assigned a curated business video from a credible source (WSJ, CNBC)
+            and delivers a concise analytical presentation that goes beyond summarizing. Students
+            research supporting evidence, cite sources formally, compare strategies with competitors,
+            and offer predictions. The assignment was rated <strong>4.74 out of 5.00</strong>.
+          </p>
+        </div>
+
+        <div class="quote-block">
+          "The mini case presentations were most valuable to my learning experience. They were not textbook type of assignments; they were truly like mocks of what you would see working at a marketing firm."
+          <cite>— Student evaluation</cite>
+        </div>
+
+        <h3 class="section__title" style="font-size:1rem; margin-top:1.5rem;">Sample Case Presentations</h3>
+        
+        <div style="display:flex; flex-direction:column; gap:2rem;">
+        
+          <!-- Case 1 -->
+          <div style="background:var(--bg-card); border:1px solid var(--border-light); border-radius:var(--radius); padding:1.5rem; box-shadow:var(--shadow-sm);">
+            <div style="font-weight:600; margin-bottom:1rem; color:var(--ink);">How Dating Apps Make Money and Why It’s Changing | WSJ The Economics Of</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div>
+                <div style="font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); margin-bottom:0.5rem;">Video</div>
+                <iframe width="100%" height="220" src="https://www.youtube.com/embed/Sgtg8ZzTV7E" frameborder="0" allowfullscreen style="border-radius:6px;"></iframe>
+              </div>
+              <div>
+                <div style="font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); margin-bottom:0.5rem;">Student Slides</div>
+                <!-- OPTION A: Google Slides embed -->
+                <!-- <iframe src="https://docs.google.com/presentation/d/YOUR_FILE_ID/embed" width="100%" height="220" frameborder="0" allowfullscreen style="border-radius:6px;"></iframe> -->
+                <!-- OPTION B: PDF embed -->
+                <iframe src="files/Dating_Apps.pdf" width="100%" height="220" style="border-radius:6px; border:1px solid var(--border);"></iframe>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Case 2 -->
+          <div style="background:var(--bg-card); border:1px solid var(--border-light); border-radius:var(--radius); padding:1.5rem; box-shadow:var(--shadow-sm);">
+            <div style="font-weight:600; margin-bottom:1rem; color:var(--ink);">Why Starbucks Operates Like a Bank | WSJ The Economics Of</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div>
+                <div style="font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); margin-bottom:0.5rem;">Video</div>
+                <iframe width="100%" height="220" src="https://www.youtube.com/embed/1-OJX1rwnl8" frameborder="0" allowfullscreen style="border-radius:6px;"></iframe>
+              </div>
+              <div>
+                <div style="font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent); margin-bottom:0.5rem;">Student Slides</div>
+                <iframe src="files/Starbucks.pdf" width="100%" height="220" style="border-radius:6px; border:1px solid var(--border);"></iframe>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+
+      <!-- ===== COURSES PREPARED TO TEACH ===== -->
+      <div class="section animate-in">
+        <div class="section__label">Prepared to Teach</div>
+        <div class="tags">
+          <span class="tag">Principles of Marketing</span>
+          <span class="tag">Marketing Research</span>
+          <span class="tag">Marketing Analytics</span>
+          <span class="tag">Digital Marketing</span>
+          <span class="tag">Brand Management</span>
+          <span class="tag">Marketing Strategy</span>
+          <span class="tag">AI in Marketing</span>
+          <span class="tag">Pricing</span>
+        </div>
+      </div>
+
+      <footer class="site-footer">&copy; 2026 Ali Kozehgaran</footer>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.querySelector('.sidebar').classList.toggle('open');
+      document.querySelector('.sidebar-overlay').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

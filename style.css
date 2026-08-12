@@ -478,6 +478,7 @@ a:hover { color: var(--accent-hover); }
 .bio-text p { margin-bottom: 1rem; }
 .bio-text strong { color: var(--ink); font-weight: 600; }
 
+
 /* --- Education Timeline --- */
 .education { list-style: none; margin: 0; padding: 0; }
 

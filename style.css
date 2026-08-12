@@ -478,6 +478,47 @@ a:hover { color: var(--accent-hover); }
 .bio-text p { margin-bottom: 1rem; }
 .bio-text strong { color: var(--ink); font-weight: 600; }
 
+/* --- Education Timeline --- */
+.education { list-style: none; margin: 0; padding: 0; }
+
+.education__item {
+  position: relative;
+  padding: 0 0 1.4rem 1.4rem;
+  border-left: 2px solid var(--border-light);
+}
+.education__item:last-child {
+  padding-bottom: 0;
+  border-left-color: transparent;
+}
+
+.education__item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 0.5rem;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+}
+
+.education__degree {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  line-height: 1.45;
+}
+.education__school {
+  font-size: 0.9rem;
+  color: var(--ink-secondary);
+}
+.education__year {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  margin-top: 0.1rem;
+}
+
+
 /* --- Footer --- */
 .site-footer {
   margin-top: 3rem;
